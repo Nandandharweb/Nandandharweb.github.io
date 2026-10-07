@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nandan Dhar | Doctoral Researcher | IIM Visakhapatnam</title>
+  
+  <!-- Tailwind CSS & FontAwesome Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Academic Fonts: Inter for UI, Newsreader / Serif for headings and titles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            serif: ['Newsreader', 'Georgia', 'serif'],
+          },
+          colors: {
+            academic: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e3a8a',
+              900: '#0f172a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom academic reading typography and subtle scrollbars */
+    body {
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    .academic-serif {
+      font-family: 'Newsreader', Georgia, serif;
+    }
+    .badge-review {
+      background-color: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+    .badge-wp {
+      background-color: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+    }
+    .badge-published {
+      background-color: #dcfce7;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+    }
+  </style>
+</head>
+<body class="bg-[#fafaf9] text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+  <div id="deploy-banner" class="bg-slate-900 text-white border-b border-slate-700 text-xs py-2.5 px-4 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center justify-center bg-blue-600 text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded text-white">Setup Guide</span>
+        <span class="text-slate-300">Deploy this page for <strong>free</strong> on GitHub Pages at <code>yourusername.github.io</code></span>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleDeployModal(true)" class="underline text-blue-400 hover:text-blue-300 font-medium cursor-pointer">
+          <i class="fa-solid fa-circle-question mr-1"></i>Step-by-step instructions
+        </button>
+        <button onclick="document.getElementById('deploy-banner').style.display='none'" class="text-slate-400 hover:text-white text-sm px-1.5 py-0.5" title="Dismiss banner">
+          &times;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-30 bg-[#fafaf9]/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#about" onclick="switchTab('about')" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-sm tracking-tight group-hover:bg-blue-600 transition-colors">ND</span>
+        <div>
+          <span class="font-bold text-slate-900 text-base tracking-tight">Nandan Dhar</span>
+          <span class="hidden sm:inline-block text-xs text-slate-500 ml-1.5 font-normal">| IIM Visakhapatnam</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-medium">
+        <button onclick="switchTab('about')" id="tab-nav-about" class="tab-button px-3 py-1.5 rounded-md text-blue-600 bg-white shadow-xs font-semibold">About</button>
+        <button onclick="switchTab('research')" id="tab-nav-research" class="tab-button px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">Research</button>
+        <button onclick="switchTab('presentations')" id="tab-nav-presentations" class="tab-button px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">Presentations</button>
+        <button onclick="switchTab('teaching')" id="tab-nav-teaching" class="tab-button px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">Teaching</button>
+        <button onclick="switchTab('cv')" id="tab-nav-cv" class="tab-button px-3 py-1.5 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">CV</button>
+      </nav>
+
+      <!-- Quick Action / Download CV Button -->
+      <div class="flex items-center gap-2">
+        <a href="#cv" onclick="switchTab('cv')" class="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium px-3 py-1.5 rounded-md shadow-xs transition-colors">
+          <i class="fa-solid fa-file-pdf text-xs"></i>
+          <span>Curriculum Vitae</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Bar -->
+    <div class="md:hidden flex overflow-x-auto border-t border-slate-200 px-4 py-2 gap-2 text-xs font-medium no-scrollbar">
+      <button onclick="switchTab('about')" id="m-tab-nav-about" class="px-3 py-1 rounded-full bg-slate-900 text-white whitespace-nowrap">About</button>
+      <button onclick="switchTab('research')" id="m-tab-nav-research" class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 whitespace-nowrap">Research</button>
+      <button onclick="switchTab('presentations')" id="m-tab-nav-presentations" class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 whitespace-nowrap">Presentations</button>
+      <button onclick="switchTab('teaching')" id="m-tab-nav-teaching" class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 whitespace-nowrap">Teaching</button>
+      <button onclick="switchTab('cv')" id="m-tab-nav-cv" class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 whitespace-nowrap">CV</button>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-1 w-full">
+    <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
+      
+      <!-- Academic Sidebar / Profile Card -->
+      <aside class="w-full lg:w-80 flex-shrink-0 lg:sticky lg:top-24">
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs">
+          
+          <!-- Avatar & Status -->
+          <div class="relative w-36 h-36 mx-auto mb-5">
+            <div class="w-full h-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center shadow-inner group">
+              <!-- Placeholder avatar; user can replace src with actual photo file name like 'avatar.jpg' -->
+              <img id="avatar-img" src="https://placehold.co/400x400/0f172a/ffffff?text=Nandan+Dhar" alt="Nandan Dhar" class="w-full h-full object-cover" />
+            </div>
+            <span class="absolute bottom-1 right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full shadow" title="Actively Researching & Writing"></span>
+          </div>
+
+          <!-- Name & Title -->
+          <div class="text-center pb-4 border-b border-slate-100">
+            <h1 class="academic-serif text-2xl font-bold text-slate-900 tracking-tight">Nandan Dhar</h1>
+            <p class="text-xs uppercase tracking-wider font-semibold text-blue-600 mt-1">Doctoral Scholar (PhD)</p>
+            <p class="text-xs text-slate-600 mt-1 leading-snug">Economics & Social Sciences Area</p>
+            <p class="text-xs font-medium text-slate-700 mt-0.5">Indian Institute of Management Visakhapatnam</p>
+          </div>
+
+          <!-- Affiliation / Contact Details -->
+          <div class="py-4 space-y-2.5 text-xs text-slate-600 border-b border-slate-100">
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-location-dot w-4 text-center text-slate-400"></i>
+              <span>Andhra Pradesh, India</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-building-columns w-4 text-center text-slate-400"></i>
+              <span>IIM Visakhapatnam Campus</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-envelope w-4 text-center text-slate-400"></i>
+              <a href="mailto:nandandhar@example.com" class="text-slate-700 hover:text-blue-600 hover:underline">nandandhar@example.com</a>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-solid fa-globe w-4 text-center text-slate-400"></i>
+              <span class="text-slate-700 font-mono text-[11px]">username.github.io</span>
+            </div>
+          </div>
+
+          <!-- Social and Scholarly Links -->
+          <div class="pt-4">
+            <span class="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2.5">Academic Profiles</span>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:border-blue-400 hover:bg-blue-50/50 text-slate-700 transition-colors">
+                <i class="fa-brands fa-google-scholar text-blue-600 text-sm"></i>
+                <span class="font-medium">Scholar</span>
+              </a>
+              <a href="https://orcid.org" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:border-emerald-400 hover:bg-emerald-50/50 text-slate-700 transition-colors">
+                <i class="fa-brands fa-orcid text-emerald-600 text-sm"></i>
+                <span class="font-medium">ORCID</span>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:border-sky-400 hover:bg-sky-50/50 text-slate-700 transition-colors">
+                <i class="fa-brands fa-linkedin text-sky-700 text-sm"></i>
+                <span class="font-medium">LinkedIn</span>
+              </a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:border-slate-400 hover:bg-slate-100 text-slate-700 transition-colors">
+                <i class="fa-brands fa-github text-slate-800 text-sm"></i>
+                <span class="font-medium">GitHub</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Research Tags -->
+          <div class="mt-5 pt-4 border-t border-slate-100">
+            <span class="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">Research Focus</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 text-slate-700 font-medium">Applied Microeconomics</span>
+              <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 text-slate-700 font-medium">Digital Public Infra (DPI)</span>
+              <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 text-slate-700 font-medium">Applied Econometrics</span>
+              <span class="px-2 py-0.5 rounded text-[11px] bg-slate-100 text-slate-700 font-medium">Technology Policy</span>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- Main Content Dynamic Panels -->
+      <div class="flex-1 w-full min-w-0">
+
+        <section id="section-about" class="tab-pane block space-y-8 animate-fadeIn">
+          <div>
+            <h2 class="academic-serif text-3xl sm:text-4xl font-semibold text-slate-900 mb-4 tracking-tight">Biography</h2>
+            <div class="space-y-4 text-slate-700 leading-relaxed text-[15px] sm:text-base font-normal">
+              <p>
+                I am a Doctoral Researcher (PhD Candidate) in the <strong>Economics & Social Sciences Area</strong> at the 
+                <a href="https://www.iimv.ac.in/" target="_blank" class="text-blue-600 hover:underline font-medium">Indian Institute of Management Visakhapatnam</a> (IIMV). 
+                My primary research interests lie at the intersection of <strong>Applied Microeconomics, Digital Public Infrastructure (DPI), Econometric Methods, and Technology Policy</strong>.
+              </p>
+              <p>
+                My dissertation examines how technological innovations—such as unified digital payment architectures, high-frequency transactions, and algorithmic market platforms—influence consumer welfare, financial inclusion, and market resilience across developing economies. Prior to entering the doctoral program at IIM Visakhapatnam, I received my academic training in Economics from premier institutions in India.
+              </p>
+              <p>
+                I utilize both structural and reduced-form empirical microeconometric strategies (e.g., difference-in-differences, regression discontinuity, and instrumental variables) alongside administrative dataset pipelines to evaluate policies and real-world technology deployments.
+              </p>
+            </div>
+          </div>
+
+          <!-- Key Highlights / News Feed -->
+          <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-xs">
+            <h3 class="font-bold text-slate-900 text-sm tracking-wide uppercase flex items-center gap-2 mb-4">
+              <i class="fa-solid fa-bullhorn text-blue-600"></i> Recent News & Updates
+            </h3>
+            <ul class="space-y-3 text-sm">
+              <li class="flex items-start gap-3">
+                <span class="text-xs font-mono text-slate-600 bg-slate-100 px-2 py-0.5 rounded flex-shrink-0 mt-0.5">Feb 2026</span>
+                <span class="text-slate-700">Presented our working paper on <em>"Digital Rails and Last-Mile Credit Adoption"</em> at the Annual Indian Econometric Conference.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-xs font-mono text-slate-600 bg-slate-100 px-2 py-0.5 rounded flex-shrink-0 mt-0.5">Nov 2025</span>
+                <span class="text-slate-700">Working paper on algorithmic liquidity provision submitted and now under revise & resubmit review.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-xs font-mono text-slate-600 bg-slate-100 px-2 py-0.5 rounded flex-shrink-0 mt-0.5">Aug 2025</span>
+                <span class="text-slate-700">Received Doctoral Travel Grant for International Economics Symposium presentation.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Education Timeline Card -->
+          <div>
+            <h3 class="academic-serif text-2xl font-semibold text-slate-900 mb-4">Education</h3>
+            <div class="space-y-4">
+              <div class="p-4 bg-white border border-slate-200 rounded-xl flex flex-col sm:flex-row justify-between sm:items-center gap-1">
+                <div>
+                  <h4 class="font-semibold text-slate-900 text-base">Ph.D. in Management (Economics & Social Sciences)</h4>
+                  <p class="text-sm text-slate-600">Indian Institute of Management (IIM) Visakhapatnam, India</p>
+                </div>
+                <span class="text-xs font-medium text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full self-start sm:self-auto border border-blue-200">2022 – Present</span>
+              </div>
+
+              <div class="p-4 bg-white border border-slate-200 rounded-xl flex flex-col sm:flex-row justify-between sm:items-center gap-1">
+                <div>
+                  <h4 class="font-semibold text-slate-900 text-base">Master of Arts (M.A.) in Economics</h4>
+                  <p class="text-sm text-slate-600">Central / State University, India</p>
+                </div>
+                <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full self-start sm:self-auto">First Class / Distinction</span>
+              </div>
+
+              <div class="p-4 bg-white border border-slate-200 rounded-xl flex flex-col sm:flex-row justify-between sm:items-center gap-1">
+                <div>
+                  <h4 class="font-semibold text-slate-900 text-base">Bachelor of Science (B.Sc.) in Economics</h4>
+                  <p class="text-sm text-slate-600">University Department of Economics, India</p>
+                </div>
+                <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full self-start sm:self-auto">Honors</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-research" class="tab-pane hidden space-y-6 animate-fadeIn">
+          <div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-3">
+              <h2 class="academic-serif text-3xl font-semibold text-slate-900 tracking-tight">Research & Papers</h2>
+              
+              <!-- Quick Filter Tabs -->
+              <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-lg text-xs font-medium text-slate-600 self-start sm:self-auto">
+                <button onclick="filterPapers('all')" id="filter-all" class="paper-filter px-2.5 py-1 rounded bg-white text-slate-900 shadow-xs font-semibold">All (3)</button>
+                <button onclick="filterPapers('working')" id="filter-working" class="paper-filter px-2.5 py-1 rounded hover:text-slate-900">Working Papers</button>
+                <button onclick="filterPapers('review')" id="filter-review" class="paper-filter px-2.5 py-1 rounded hover:text-slate-900">Under Review</button>
+              </div>
+            </div>
+            <p class="text-sm text-slate-600">Download working drafts, view replication packages, or copy formatted BibTeX citations.</p>
+          </div>
+
+          <!-- Paper Item 1 -->
+          <article class="paper-card bg-white border border-slate-200 rounded-xl p-5 shadow-xs hover:border-slate-300 transition-all" data-type="working">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="badge-wp text-xs font-semibold px-2.5 py-0.5 rounded-full">Working Paper</span>
+              <span class="text-xs text-slate-500 font-mono">Job Market Paper (in prep)</span>
+            </div>
+            <h3 class="academic-serif text-xl font-bold text-slate-900 mb-1 hover:text-blue-600 transition-colors">
+              Digital Public Infrastructure and Credit Allocation in Fragmented Rural Economies
+            </h3>
+            <p class="text-xs text-slate-600 mb-3">
+              <strong>Nandan Dhar</strong>, Co-author Name (Advisor) &bull; <em>Manuscript available upon request</em> (2026)
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed mb-4">
+              This paper exploits the phased regional rollout of unified open banking APIs to evaluate credit delivery across unbanked rural districts. Using a stacked difference-in-differences estimator, we find a 28% increase in formal credit uptake among micro-enterprises with reduced default rates through verifiable payment trails.
+            </p>
+            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 text-xs">
+              <a href="#" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-800 font-medium transition-colors">
+                <i class="fa-solid fa-file-pdf text-red-600"></i> Draft PDF
+              </a>
+              <button onclick="openBibtexModal('dhar2026dpi')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium transition-colors">
+                <i class="fa-solid fa-quote-left text-slate-400"></i> BibTeX
+              </button>
+              <a href="#" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium transition-colors">
+                <i class="fa-brands fa-github text-slate-500"></i> Code & Replication
+              </a>
+            </div>
+          </article>
+
+          <!-- Paper Item 2 -->
+          <article class="paper-card bg-white border border-slate-200 rounded-xl p-5 shadow-xs hover:border-slate-300 transition-all" data-type="review">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="badge-review text-xs font-semibold px-2.5 py-0.5 rounded-full">Under Review</span>
+              <span class="text-xs text-slate-500 font-mono">Journal of Development Economics</span>
+            </div>
+            <h3 class="academic-serif text-xl font-bold text-slate-900 mb-1 hover:text-blue-600 transition-colors">
+              Network Friction and Merchant Adoption in Real-Time Mobile Payment Systems
+            </h3>
+            <p class="text-xs text-slate-600 mb-3">
+              <strong>Nandan Dhar</strong>, Senior Collaborator &bull; <em>Revise & Resubmit</em> (2025)
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed mb-4">
+              We investigate two-sided network externalities during the nationwide expansion of digital QR payments. Analyzing high-frequency transaction logs across urban retail clusters, we document critical tipping points in vendor participation driven by consumer switching costs.
+            </p>
+            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 text-xs">
+              <a href="#" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-800 font-medium transition-colors">
+                <i class="fa-solid fa-file-pdf text-red-600"></i> Preprint
+              </a>
+              <button onclick="openBibtexModal('dhar2025friction')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium transition-colors">
+                <i class="fa-solid fa-quote-left text-slate-400"></i> BibTeX
+              </button>
+            </div>
+          </article>
+
+          <!-- Paper Item 3 -->
+          <article class="paper-card bg-white border border-slate-200 rounded-xl p-5 shadow-xs hover:border-slate-300 transition-all" data-type="working">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="badge-wp text-xs font-semibold px-2.5 py-0.5 rounded-full">Working Paper</span>
+              <span class="text-xs text-slate-500 font-mono">Working Paper Series No. 2025/04</span>
+            </div>
+            <h3 class="academic-serif text-xl font-bold text-slate-900 mb-1 hover:text-blue-600 transition-colors">
+              Market Depth and Execution Latency in Emerging Equity Derivatives
+            </h3>
+            <p class="text-xs text-slate-600 mb-3">
+              <strong>Nandan Dhar</strong> &bull; <em>Working Paper</em> (2025)
+            </p>
+            <p class="text-sm text-slate-700 leading-relaxed mb-4">
+              Examining limit-order book tick data from exchange microstructure regimes, this study characterizes how latency improvements affect non-colocated retail traders compared to automated market makers.
+            </p>
+            <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 text-xs">
+              <a href="#" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-800 font-medium transition-colors">
+                <i class="fa-solid fa-file-pdf text-red-600"></i> PDF Draft
+              </a>
+              <button onclick="openBibtexModal('dhar2025depth')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium transition-colors">
+                <i class="fa-solid fa-quote-left text-slate-400"></i> BibTeX
+              </button>
+            </div>
+          </article>
+        </section>
+
+        <section id="section-presentations" class="tab-pane hidden space-y-6 animate-fadeIn">
+          <div>
+            <h2 class="academic-serif text-3xl font-semibold text-slate-900 mb-2 tracking-tight">Conferences & Presentations</h2>
+            <p class="text-sm text-slate-600">Peer-reviewed presentations, invited seminars, and academic workshops.</p>
+          </div>
+
+          <div class="border-l-2 border-slate-200 ml-3 pl-6 space-y-8">
+            
+            <!-- Talk 1 -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-blue-600 ring-4 ring-white"></span>
+              <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
+                <div class="flex flex-wrap justify-between items-baseline mb-1">
+                  <h4 class="font-semibold text-slate-900 text-base">The Indian Econometric Society (TIES) Annual Conference</h4>
+                  <span class="text-xs font-medium text-slate-500">January 2026</span>
+                </div>
+                <p class="text-xs text-blue-600 font-medium mb-2">New Delhi, India</p>
+                <p class="text-sm text-slate-700 mb-2">Paper Presented: <em>"Digital Rails and Last-Mile Credit Adoption in Fragmented Economies"</em></p>
+                <div class="flex gap-2">
+                  <a href="#" class="text-xs text-slate-500 hover:text-blue-600 underline"><i class="fa-regular fa-file-powerpoint mr-1"></i>Presentation Slides</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Talk 2 -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-slate-300 ring-4 ring-white"></span>
+              <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
+                <div class="flex flex-wrap justify-between items-baseline mb-1">
+                  <h4 class="font-semibold text-slate-900 text-base">IIM Doctoral Consortium & Research Symposium</h4>
+                  <span class="text-xs font-medium text-slate-500">December 2025</span>
+                </div>
+                <p class="text-xs text-blue-600 font-medium mb-2">Visakhapatnam, India</p>
+                <p class="text-sm text-slate-700">Presented dissertation proposal and early results from empirical transaction microdata.</p>
+              </div>
+            </div>
+
+            <!-- Talk 3 -->
+            <div class="relative">
+              <span class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-slate-300 ring-4 ring-white"></span>
+              <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-xs">
+                <div class="flex flex-wrap justify-between items-baseline mb-1">
+                  <h4 class="font-semibold text-slate-900 text-base">Doctoral Workshop on Applied Microeconomics</h4>
+                  <span class="text-xs font-medium text-slate-500">August 2025</span>
+                </div>
+                <p class="text-xs text-blue-600 font-medium mb-2">Bangalore, India</p>
+                <p class="text-sm text-slate-700">Workshop participant & discussant on causal inference with spatial and panel datasets.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section id="section-teaching" class="tab-pane hidden space-y-6 animate-fadeIn">
+          <div>
+            <h2 class="academic-serif text-3xl font-semibold text-slate-900 mb-2 tracking-tight">Teaching & Experience</h2>
+            <p class="text-sm text-slate-600">Academic instruction, graduate teaching assistantships, and professional service.</p>
+          </div>
+
+          <div class="space-y-4">
+            <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-xs">
+              <div class="flex justify-between items-baseline mb-1">
+                <h3 class="font-bold text-slate-900 text-base">Teaching Assistant &ndash; Microeconomics for Managers (MBA / PGP)</h3>
+                <span class="text-xs text-slate-500 font-medium">Academic Year 2024–2025</span>
+              </div>
+              <p class="text-xs text-blue-600 font-medium mb-2">IIM Visakhapatnam &bull; Instructor: Faculty Chair</p>
+              <p class="text-sm text-slate-700 leading-relaxed">
+                Conducted weekly review and tutorial problem-solving sessions on consumer theory, firm behavior, price discrimination, and game-theoretic market equilibria for a cohort of 180 MBA students. Handled grading of midterm simulations.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-xs">
+              <div class="flex justify-between items-baseline mb-1">
+                <h3 class="font-bold text-slate-900 text-base">Teaching Assistant &ndash; Econometrics & Quantitative Methods</h3>
+                <span class="text-xs text-slate-500 font-medium">Academic Year 2023–2024</span>
+              </div>
+              <p class="text-xs text-blue-600 font-medium mb-2">IIM Visakhapatnam &bull; Instructor: Area Faculty</p>
+              <p class="text-sm text-slate-700 leading-relaxed">
+                Led computer lab sessions introducing graduate students to empirical econometric programming in <strong>R</strong> and <strong>Stata</strong>. Covered OLS diagnostics, instrumental variables, panel fixed-effects, and synthetic control implementations.
+              </p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-xs">
+              <div class="flex justify-between items-baseline mb-1">
+                <h3 class="font-bold text-slate-900 text-base">Ad-hoc Referee & Academic Service</h3>
+                <span class="text-xs text-slate-500 font-medium">Ongoing</span>
+              </div>
+              <p class="text-sm text-slate-700 leading-relaxed">
+                Reviewer for student-run working paper series and active committee member for academic seminars and annual doctoral conferences at IIM Visakhapatnam.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-cv" class="tab-pane hidden space-y-6 animate-fadeIn">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="academic-serif text-3xl font-semibold text-slate-900 tracking-tight">Curriculum Vitae</h2>
+              <p class="text-sm text-slate-600">Updated as of Spring 2026.</p>
+            </div>
+            <!-- Download Button -->
+            <a href="CV_Nandan_Dhar.pdf" download class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2.5 rounded-lg shadow-xs transition-colors self-start sm:self-auto">
+              <i class="fa-solid fa-download"></i>
+              <span>Download PDF Version</span>
+            </a>
+          </div>
+
+          <!-- Structured CV Outline -->
+          <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-xs space-y-6 text-sm">
+            <div>
+              <h3 class="font-bold text-slate-900 uppercase text-xs tracking-wider border-b border-slate-200 pb-1.5 mb-3">Academic Fields</h3>
+              <p class="text-slate-700"><strong>Primary:</strong> Applied Microeconomics, Development Economics, Digital Public Infrastructure</p>
+              <p class="text-slate-700"><strong>Secondary:</strong> Applied Econometrics, Market Microstructure, Technology & Competition Policy</p>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-900 uppercase text-xs tracking-wider border-b border-slate-200 pb-1.5 mb-3">Technical & Methodological Toolkit</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-700">
+                <div>
+                  <span class="font-medium text-slate-900">Statistical & Econometric Software:</span>
+                  <p class="text-slate-600">R (tidyverse, fixest, plm), Stata, Python (pandas, statsmodels, scikit-learn)</p>
+                </div>
+                <div>
+                  <span class="font-medium text-slate-900">Typesetting & Version Control:</span>
+                  <p class="text-slate-600">LaTeX, Git/GitHub, Overleaf, Markdown</p>
+                </div>
+                <div>
+                  <span class="font-medium text-slate-900">Causal Inference Tools:</span>
+                  <p class="text-slate-600">DiD / Callaway-Sant'Anna, RDD, Instrumental Variables, Synthetic Controls</p>
+                </div>
+                <div>
+                  <span class="font-medium text-slate-900">Languages:</span>
+                  <p class="text-slate-600">English (Fluent), Hindi (Fluent), Bengali / Regional (Native)</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-slate-900 uppercase text-xs tracking-wider border-b border-slate-200 pb-1.5 mb-3">Honours, Grants & Fellowships</h3>
+              <ul class="list-disc list-inside space-y-1 text-slate-700">
+                <li>Doctoral Fellowship, Indian Institute of Management Visakhapatnam (2022 – Present)</li>
+                <li>Institute Contingency and Research Travel Grants (2024, 2025)</li>
+                <li>University Merit Scholarship for Academic Excellence in Postgraduate Studies</li>
+              </ul>
+            </div>
+
+            <!-- PDF Embed Notice / Fallback -->
+            <div class="mt-6 p-4 rounded-lg bg-slate-50 border border-dashed border-slate-300 text-center">
+              <p class="text-xs text-slate-600 mb-2">To embed your actual PDF resume directly on this page, place your file named <code>CV_Nandan_Dhar.pdf</code> into your repository and link it above.</p>
+              <span class="text-xs font-mono text-slate-500">&lt;a href="CV_Nandan_Dhar.pdf"&gt;Download PDF&lt;/a&gt;</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="bibtex-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 animate-fadeIn relative">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+        <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+          <i class="fa-solid fa-quote-right text-blue-600"></i> BibTeX Citation
+        </h3>
+        <button onclick="closeBibtexModal()" class="text-slate-400 hover:text-slate-600 text-lg leading-none cursor-pointer">&times;</button>
+      </div>
+      <pre id="bibtex-content" class="bg-slate-900 text-emerald-400 p-3.5 rounded-lg text-xs font-mono overflow-x-auto selection:bg-emerald-900 selection:text-white max-h-60"></pre>
+      <div class="mt-4 flex justify-between items-center">
+        <span id="copy-status" class="text-xs font-medium text-emerald-600 opacity-0 transition-opacity">Copied to clipboard!</span>
+        <div class="flex gap-2">
+          <button onclick="closeBibtexModal()" class="px-3 py-1.5 text-xs text-slate-600 hover:bg-slate-100 rounded-md">Close</button>
+          <button onclick="copyBibtexToClipboard()" class="px-3.5 py-1.5 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-md flex items-center gap-1.5 shadow-xs">
+            <i class="fa-regular fa-clone"></i>
+            <span>Copy BibTeX</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="deploy-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 animate-fadeIn max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+        <div>
+          <h3 class="font-bold text-slate-900 text-lg">How to Host This at <code>username.github.io</code></h3>
+          <p class="text-xs text-slate-500">100% Free Forever &bull; No hosting charges &bull; Free SSL/HTTPS</p>
+        </div>
+        <button onclick="toggleDeployModal(false)" class="text-slate-400 hover:text-slate-600 text-2xl leading-none">&times;</button>
+      </div>
+
+      <div class="space-y-4 text-xs sm:text-sm text-slate-700">
+        <div class="flex gap-3">
+          <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center flex-shrink-0 text-xs mt-0.5">1</span>
+          <div>
+            <h4 class="font-semibold text-slate-900">Create a GitHub Account</h4>
+            <p class="text-slate-600">Sign up on <a href="https://github.com" target="_blank" class="text-blue-600 underline">github.com</a> if you don't already have one. Choose your desired username (e.g., <code>nandandhar</code>).</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center flex-shrink-0 text-xs mt-0.5">2</span>
+          <div>
+            <h4 class="font-semibold text-slate-900">Create a Special Repository</h4>
+            <p class="text-slate-600">Click <strong>"New repository"</strong>. The repository name <em>must</em> strictly follow this exact format:</p>
+            <div class="bg-slate-100 p-2 rounded font-mono text-slate-800 text-xs mt-1 border border-slate-200">
+              yourusername.github.io
+            </div>
+            <p class="text-slate-500 text-[11px] mt-1">Make sure the repository visibility is set to <strong>Public</strong>.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center flex-shrink-0 text-xs mt-0.5">3</span>
+          <div>
+            <h4 class="font-semibold text-slate-900">Upload this file as <code>index.html</code></h4>
+            <p class="text-slate-600">Save this webpage as <strong><code>index.html</code></strong>. On your GitHub repository page, click <strong>"Add file" &rarr; "Upload files"</strong>, drag and drop <code>index.html</code>, and click <strong>"Commit changes"</strong>.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3">
+          <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center flex-shrink-0 text-xs mt-0.5">4</span>
+          <div>
+            <h4 class="font-semibold text-slate-900">Your Site is Live Instantly!</h4>
+            <p class="text-slate-600">Within 60 to 90 seconds, your site will be live at <code>https://yourusername.github.io</code>. GitHub automatically provisions an SSL certificate (https).</p>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 text-xs text-blue-900 mt-2">
+          <strong>Tip for CV & Photos:</strong> If you upload your photo as <code>avatar.jpg</code> or your resume as <code>cv.pdf</code> into the same repository, simply reference them as <code>src="avatar.jpg"</code> or <code>href="cv.pdf"</code> in this file.
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="toggleDeployModal(false)" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-medium rounded-lg text-xs">
+          Got it, Close Guide
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-200 bg-white py-8 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-center sm:text-left">
+        <p>&copy; 2026 Nandan Dhar. Hosted with <a href="https://pages.github.com/" target="_blank" class="hover:text-blue-600 underline">GitHub Pages</a>.</p>
+        <p class="mt-0.5 text-slate-400">Design inspired by AcademicPages & Jekyll academic profiles.</p>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="#about" onclick="switchTab('about')" class="hover:text-slate-700">About</a>
+        <a href="#research" onclick="switchTab('research')" class="hover:text-slate-700">Research</a>
+        <a href="#cv" onclick="switchTab('cv')" class="hover:text-slate-700">Curriculum Vitae</a>
+        <a href="https://github.com" target="_blank" class="hover:text-slate-700 text-base" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tab switching logic
+    function switchTab(tabId) {
+      // Hide all panels
+      document.querySelectorAll('.tab-pane').forEach(el => {
+        el.classList.add('hidden');
+        el.classList.remove('block');
+      });
+
+      // Show targeted panel
+      const targetPane = document.getElementById('section-' + tabId);
+      if (targetPane) {
+        targetPane.classList.remove('hidden');
+        targetPane.classList.add('block');
+      }
+
+      // Update Desktop Nav styles
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('text-blue-600', 'bg-white', 'shadow-xs', 'font-semibold');
+        btn.classList.add('text-slate-600');
+      });
+      const activeBtn = document.getElementById('tab-nav-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.add('text-blue-600', 'bg-white', 'shadow-xs', 'font-semibold');
+        activeBtn.classList.remove('text-slate-600');
+      }
+
+      // Update Mobile Nav styles
+      const mobileTabs = ['about', 'research', 'presentations', 'teaching', 'cv'];
+      mobileTabs.forEach(id => {
+        const mBtn = document.getElementById('m-tab-nav-' + id);
+        if (mBtn) {
+          if (id === tabId) {
+            mBtn.className = 'px-3 py-1 rounded-full bg-slate-900 text-white whitespace-nowrap';
+          } else {
+            mBtn.className = 'px-3 py-1 rounded-full bg-slate-100 text-slate-700 whitespace-nowrap';
+          }
+        }
+      });
+
+      // Smooth scroll back to top of container if on mobile
+      if (window.innerWidth < 768) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Filter research papers by category
+    function filterPapers(type) {
+      const cards = document.querySelectorAll('.paper-card');
+      cards.forEach(card => {
+        if (type === 'all' || card.getAttribute('data-type') === type) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Update button visual styles
+      document.querySelectorAll('.paper-filter').forEach(btn => {
+        btn.classList.remove('bg-white', 'text-slate-900', 'shadow-xs', 'font-semibold');
+        btn.classList.add('hover:text-slate-900');
+      });
+      const activeFilterBtn = document.getElementById('filter-' + type);
+      if (activeFilterBtn) {
+        activeFilterBtn.classList.add('bg-white', 'text-slate-900', 'shadow-xs', 'font-semibold');
+      }
+    }
+
+    // BibTeX citations database
+    const bibtexData = {
+      'dhar2026dpi': `@techreport{dhar2026dpi,
+  title       = {Digital Public Infrastructure and Credit Allocation in Fragmented Rural Economies},
+  author      = {Dhar, Nandan and Collaborators},
+  institution = {Indian Institute of Management Visakhapatnam},
+  year        = {2026},
+  type        = {Working Paper},
+  url         = {https://nandandhar.github.io/}
+}`,
+      'dhar2025friction': `@article{dhar2025friction,
+  title   = {Network Friction and Merchant Adoption in Real-Time Mobile Payment Systems},
+  author  = {Dhar, Nandan},
+  journal = {Journal of Development Economics (Under Review)},
+  year    = {2025}
+}`,
+      'dhar2025depth': `@techreport{dhar2025depth,
+  title       = {Market Depth and Execution Latency in Emerging Equity Derivatives},
+  author      = {Dhar, Nandan},
+  institution = {IIM Visakhapatnam Working Paper Series},
+  number      = {2025/04},
+  year        = {2025}
+}`
+    };
+
+    function openBibtexModal(key) {
+      const bibText = bibtexData[key] || "Citation not found.";
+      document.getElementById('bibtex-content').textContent = bibText;
+      document.getElementById('bibtex-modal').classList.remove('hidden');
+      document.getElementById('copy-status').style.opacity = '0';
+    }
+
+    function closeBibtexModal() {
+      document.getElementById('bibtex-modal').classList.add('hidden');
+    }
+
+    function copyBibtexToClipboard() {
+      const text = document.getElementById('bibtex-content').textContent;
+      
+      // Fallback-safe clipboard copy as required
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        const status = document.getElementById('copy-status');
+        status.style.opacity = '1';
+        setTimeout(() => {
+          status.style.opacity = '0';
+        }, 2200);
+      } catch (err) {
+        console.error('Could not copy BibTeX:', err);
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function toggleDeployModal(show) {
+      const modal = document.getElementById('deploy-modal');
+      if (show) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    // Close modals on clicking backdrop
+    window.addEventListener('click', function(e) {
+      const bibModal = document.getElementById('bibtex-modal');
+      const deployModal = document.getElementById('deploy-modal');
+      if (e.target === bibModal) closeBibtexModal();
+      if (e.target === deployModal) toggleDeployModal(false);
+    });
+  </script>
+</body>
+</html>
