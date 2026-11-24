@@ -67,23 +67,6 @@
 </head>
 <body class="bg-[#fafaf9] text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-  <div id="deploy-banner" class="bg-slate-900 text-white border-b border-slate-700 text-xs py-2.5 px-4 transition-all duration-300">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-flex items-center justify-center bg-blue-600 text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded text-white">Setup Guide</span>
-        <span class="text-slate-300">Deploy this page for <strong>free</strong> on GitHub Pages at <code>yourusername.github.io</code></span>
-      </div>
-      <div class="flex items-center gap-3">
-        <button onclick="toggleDeployModal(true)" class="underline text-blue-400 hover:text-blue-300 font-medium cursor-pointer">
-          <i class="fa-solid fa-circle-question mr-1"></i>Step-by-step instructions
-        </button>
-        <button onclick="document.getElementById('deploy-banner').style.display='none'" class="text-slate-400 hover:text-white text-sm px-1.5 py-0.5" title="Dismiss banner">
-          &times;
-        </button>
-      </div>
-    </div>
-  </div>
-
   <header class="sticky top-0 z-30 bg-[#fafaf9]/95 backdrop-blur-md border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#about" onclick="switchTab('about')" class="flex items-center gap-2 group">
@@ -131,9 +114,14 @@
           
           <!-- Avatar & Status -->
           <div class="relative w-36 h-36 mx-auto mb-5">
-            <div class="w-full h-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center shadow-inner group">
-              <!-- Placeholder avatar; user can replace src with actual photo file name like 'avatar.jpg' -->
-              <img id="avatar-img" src="https://placehold.co/400x400/0f172a/ffffff?text=Nandan+Dhar" alt="Nandan Dhar" class="w-full h-full object-cover" />
+            <div class="w-full h-full rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 flex items-center justify-center shadow-inner group">
+              <img 
+                id="avatar-img" 
+                src="profile.jpg" 
+                alt="Nandan Dhar" 
+                class="w-full h-full object-cover"
+                onerror="this.onerror=null; this.src='https://placehold.co/400x400/0f172a/ffffff?text=Nandan+Dhar';"
+              />
             </div>
             <span class="absolute bottom-1 right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full shadow" title="Actively Researching & Writing"></span>
           </div>
@@ -146,36 +134,23 @@
             <p class="text-xs font-medium text-slate-700 mt-0.5">Indian Institute of Management Visakhapatnam</p>
           </div>
 
-          <!-- Affiliation / Contact Details -->
+          <!-- Contact & Web Details -->
           <div class="py-4 space-y-2.5 text-xs text-slate-600 border-b border-slate-100">
             <div class="flex items-center gap-2.5">
-              <i class="fa-solid fa-location-dot w-4 text-center text-slate-400"></i>
-              <span>Andhra Pradesh, India</span>
-            </div>
-            <div class="flex items-center gap-2.5">
-              <i class="fa-solid fa-building-columns w-4 text-center text-slate-400"></i>
-              <span>IIM Visakhapatnam Campus</span>
-            </div>
-            <div class="flex items-center gap-2.5">
               <i class="fa-solid fa-envelope w-4 text-center text-slate-400"></i>
-              <a href="mailto:nandandhar@example.com" class="text-slate-700 hover:text-blue-600 hover:underline">nandandhar@example.com</a>
+              <a href="mailto:Nandan.Dhar26-02@iimv.ac.in" class="text-slate-700 hover:text-blue-600 hover:underline truncate" title="Nandan.Dhar26-02@iimv.ac.in">Nandan.Dhar26-02@iimv.ac.in</a>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <i class="fa-brands fa-github w-4 text-center text-slate-400"></i>
+              <a href="https://github.com/Nandandharweb" target="_blank" rel="noopener noreferrer" class="text-slate-700 hover:text-blue-600 hover:underline font-mono text-[11px]">github.com/Nandandharweb</a>
             </div>
             <div class="flex items-center gap-2.5">
               <i class="fa-solid fa-globe w-4 text-center text-slate-400"></i>
-              <span class="text-slate-700 font-mono text-[11px]">username.github.io</span>
+              <a href="https://nandandharweb.github.io" class="text-slate-700 hover:text-blue-600 hover:underline font-mono text-[11px]">nandandharweb.github.io</a>
             </div>
           </div>
 
-          , 
-          <a href= "https://scholar.google.com" target="_blank" rel="noopener noreferrer" ...>
-  <i class="fa-brands fa-google-scholar text-blue-600 text-sm"></i>
-  <span class="font-medium">Scholar</span>
-</a>
-
-<a href="https://orcid.org/0009-0007-4903-9028" target="_blank" rel="noopener noreferrer" ...>
-  <i class="fa-brands fa-orcid text-emerald-600 text-sm"></i>
-  <span class="font-medium">ORCID</span>
-</a>
+          <!-- Academic Profiles -->
           <div class="pt-4">
             <span class="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2.5">Academic Profiles</span>
             <div class="grid grid-cols-2 gap-2 text-xs">
@@ -183,7 +158,7 @@
                 <i class="fa-brands fa-google-scholar text-blue-600 text-sm"></i>
                 <span class="font-medium">Scholar</span>
               </a>
-              <a href="https://orcid.org" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:border-emerald-400 hover:bg-emerald-50/50 text-slate-700 transition-colors">
+              <a href="https://orcid.org/0009-0007-4903-9028" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:border-emerald-400 hover:bg-emerald-50/50 text-slate-700 transition-colors">
                 <i class="fa-brands fa-orcid text-emerald-600 text-sm"></i>
                 <span class="font-medium">ORCID</span>
               </a>
@@ -191,7 +166,7 @@
                 <i class="fa-brands fa-linkedin text-sky-700 text-sm"></i>
                 <span class="font-medium">LinkedIn</span>
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:border-slate-400 hover:bg-slate-100 text-slate-700 transition-colors">
+              <a href="https://github.com/Nandandharweb" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 p-2 rounded-lg border border-slate-200 hover:border-slate-400 hover:bg-slate-100 text-slate-700 transition-colors">
                 <i class="fa-brands fa-github text-slate-800 text-sm"></i>
                 <span class="font-medium">GitHub</span>
               </a>
@@ -263,21 +238,21 @@
                   <h4 class="font-semibold text-slate-900 text-base">Ph.D. in Management (Economics & Social Sciences)</h4>
                   <p class="text-sm text-slate-600">Indian Institute of Management (IIM) Visakhapatnam, India</p>
                 </div>
-                <span class="text-xs font-medium text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full self-start sm:self-auto border border-blue-200">2022 – Present</span>
+                <span class="text-xs font-medium text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full self-start sm:self-auto border border-blue-200">2026 – Present</span>
               </div>
 
               <div class="p-4 bg-white border border-slate-200 rounded-xl flex flex-col sm:flex-row justify-between sm:items-center gap-1">
                 <div>
                   <h4 class="font-semibold text-slate-900 text-base">Master of Arts (M.A.) in Economics</h4>
-                  <p class="text-sm text-slate-600">Central / State University, India</p>
+                  <p class="text-sm text-slate-600">Tripura Central University, India</p>
                 </div>
-                <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full self-start sm:self-auto">First Class / Distinction</span>
+                <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full self-start sm:self-auto">Rank 1 / Gold Medalist</span>
               </div>
 
               <div class="p-4 bg-white border border-slate-200 rounded-xl flex flex-col sm:flex-row justify-between sm:items-center gap-1">
                 <div>
                   <h4 class="font-semibold text-slate-900 text-base">Bachelor of Science (B.Sc.) in Economics</h4>
-                  <p class="text-sm text-slate-600">University Department of Economics, India</p>
+                  <p class="text-sm text-slate-600">Gauhati University, India</p>
                 </div>
                 <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full self-start sm:self-auto">Honors</span>
               </div>
@@ -322,7 +297,7 @@
               <button onclick="openBibtexModal('dhar2026dpi')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium transition-colors">
                 <i class="fa-solid fa-quote-left text-slate-400"></i> BibTeX
               </button>
-              <a href="#" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium transition-colors">
+              <a href="https://github.com/Nandandharweb" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium transition-colors">
                 <i class="fa-brands fa-github text-slate-500"></i> Code & Replication
               </a>
             </div>
@@ -511,7 +486,7 @@
                 </div>
                 <div>
                   <span class="font-medium text-slate-900">Languages:</span>
-                  <p class="text-slate-600">English (Fluent), Hindi (Fluent), Bengali / Regional (Native)</p>
+                  <p class="text-slate-600">English (Fluent), Hindi (Fluent), Bengali & Assamese (Native/Fluent)</p>
                 </div>
               </div>
             </div>
@@ -519,16 +494,10 @@
             <div>
               <h3 class="font-bold text-slate-900 uppercase text-xs tracking-wider border-b border-slate-200 pb-1.5 mb-3">Honours, Grants & Fellowships</h3>
               <ul class="list-disc list-inside space-y-1 text-slate-700">
-                <li>Doctoral Fellowship, Indian Institute of Management Visakhapatnam (2022 – Present)</li>
-                <li>Institute Contingency and Research Travel Grants (2024, 2025)</li>
-                <li>University Merit Scholarship for Academic Excellence in Postgraduate Studies</li>
+                <li>Doctoral Fellowship, Indian Institute of Management Visakhapatnam (2026 – Present)</li>
+                <li>Institute Contingency and Research Travel Grants</li>
+                <li>University Merit Scholarship & Gold Medal for Academic Rank 1 in M.A. Economics</li>
               </ul>
-            </div>
-
-            <!-- PDF Embed Notice / Fallback -->
-            <div class="mt-6 p-4 rounded-lg bg-slate-50 border border-dashed border-slate-300 text-center">
-              <p class="text-xs text-slate-600 mb-2">To embed your actual PDF resume directly on this page, place your file named <code>CV_Nandan_Dhar.pdf</code> into your repository and link it above.</p>
-              <span class="text-xs font-mono text-slate-500">&lt;a href="CV_Nandan_Dhar.pdf"&gt;Download PDF&lt;/a&gt;</span>
             </div>
           </div>
         </section>
@@ -559,66 +528,6 @@
     </div>
   </div>
 
-  <div id="deploy-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
-    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 animate-fadeIn max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
-        <div>
-          <h3 class="font-bold text-slate-900 text-lg">How to Host This at <code>username.github.io</code></h3>
-          <p class="text-xs text-slate-500">100% Free Forever &bull; No hosting charges &bull; Free SSL/HTTPS</p>
-        </div>
-        <button onclick="toggleDeployModal(false)" class="text-slate-400 hover:text-slate-600 text-2xl leading-none">&times;</button>
-      </div>
-
-      <div class="space-y-4 text-xs sm:text-sm text-slate-700">
-        <div class="flex gap-3">
-          <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center flex-shrink-0 text-xs mt-0.5">1</span>
-          <div>
-            <h4 class="font-semibold text-slate-900">Create a GitHub Account</h4>
-            <p class="text-slate-600">Sign up on <a href="https://github.com" target="_blank" class="text-blue-600 underline">github.com</a> if you don't already have one. Choose your desired username (e.g., <code>nandandhar</code>).</p>
-          </div>
-        </div>
-
-        <div class="flex gap-3">
-          <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center flex-shrink-0 text-xs mt-0.5">2</span>
-          <div>
-            <h4 class="font-semibold text-slate-900">Create a Special Repository</h4>
-            <p class="text-slate-600">Click <strong>"New repository"</strong>. The repository name <em>must</em> strictly follow this exact format:</p>
-            <div class="bg-slate-100 p-2 rounded font-mono text-slate-800 text-xs mt-1 border border-slate-200">
-              yourusername.github.io
-            </div>
-            <p class="text-slate-500 text-[11px] mt-1">Make sure the repository visibility is set to <strong>Public</strong>.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-3">
-          <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center flex-shrink-0 text-xs mt-0.5">3</span>
-          <div>
-            <h4 class="font-semibold text-slate-900">Upload this file as <code>index.html</code></h4>
-            <p class="text-slate-600">Save this webpage as <strong><code>index.html</code></strong>. On your GitHub repository page, click <strong>"Add file" &rarr; "Upload files"</strong>, drag and drop <code>index.html</code>, and click <strong>"Commit changes"</strong>.</p>
-          </div>
-        </div>
-
-        <div class="flex gap-3">
-          <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center flex-shrink-0 text-xs mt-0.5">4</span>
-          <div>
-            <h4 class="font-semibold text-slate-900">Your Site is Live Instantly!</h4>
-            <p class="text-slate-600">Within 60 to 90 seconds, your site will be live at <code>https://yourusername.github.io</code>. GitHub automatically provisions an SSL certificate (https).</p>
-          </div>
-        </div>
-
-        <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 text-xs text-blue-900 mt-2">
-          <strong>Tip for CV & Photos:</strong> If you upload your photo as <code>avatar.jpg</code> or your resume as <code>cv.pdf</code> into the same repository, simply reference them as <code>src="avatar.jpg"</code> or <code>href="cv.pdf"</code> in this file.
-        </div>
-      </div>
-
-      <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
-        <button onclick="toggleDeployModal(false)" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-medium rounded-lg text-xs">
-          Got it, Close Guide
-        </button>
-      </div>
-    </div>
-  </div>
-
   <footer class="border-t border-slate-200 bg-white py-8 text-xs text-slate-500">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="text-center sm:text-left">
@@ -629,7 +538,7 @@
         <a href="#about" onclick="switchTab('about')" class="hover:text-slate-700">About</a>
         <a href="#research" onclick="switchTab('research')" class="hover:text-slate-700">Research</a>
         <a href="#cv" onclick="switchTab('cv')" class="hover:text-slate-700">Curriculum Vitae</a>
-        <a href="https://github.com" target="_blank" class="hover:text-slate-700 text-base" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://github.com/Nandandharweb" target="_blank" class="hover:text-slate-700 text-base" title="GitHub"><i class="fa-brands fa-github"></i></a>
       </div>
     </div>
   </footer>
@@ -637,20 +546,17 @@
   <script>
     // Tab switching logic
     function switchTab(tabId) {
-      // Hide all panels
       document.querySelectorAll('.tab-pane').forEach(el => {
         el.classList.add('hidden');
         el.classList.remove('block');
       });
 
-      // Show targeted panel
       const targetPane = document.getElementById('section-' + tabId);
       if (targetPane) {
         targetPane.classList.remove('hidden');
         targetPane.classList.add('block');
       }
 
-      // Update Desktop Nav styles
       document.querySelectorAll('.tab-button').forEach(btn => {
         btn.classList.remove('text-blue-600', 'bg-white', 'shadow-xs', 'font-semibold');
         btn.classList.add('text-slate-600');
@@ -661,7 +567,6 @@
         activeBtn.classList.remove('text-slate-600');
       }
 
-      // Update Mobile Nav styles
       const mobileTabs = ['about', 'research', 'presentations', 'teaching', 'cv'];
       mobileTabs.forEach(id => {
         const mBtn = document.getElementById('m-tab-nav-' + id);
@@ -674,7 +579,6 @@
         }
       });
 
-      // Smooth scroll back to top of container if on mobile
       if (window.innerWidth < 768) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -691,7 +595,6 @@
         }
       });
 
-      // Update button visual styles
       document.querySelectorAll('.paper-filter').forEach(btn => {
         btn.classList.remove('bg-white', 'text-slate-900', 'shadow-xs', 'font-semibold');
         btn.classList.add('hover:text-slate-900');
@@ -710,7 +613,7 @@
   institution = {Indian Institute of Management Visakhapatnam},
   year        = {2026},
   type        = {Working Paper},
-  url         = {https://nandandhar.github.io/}
+  url         = {https://nandandharweb.github.io/}
 }`,
       'dhar2025friction': `@article{dhar2025friction,
   title   = {Network Friction and Merchant Adoption in Real-Time Mobile Payment Systems},
@@ -740,8 +643,6 @@
 
     function copyBibtexToClipboard() {
       const text = document.getElementById('bibtex-content').textContent;
-      
-      // Fallback-safe clipboard copy as required
       const textArea = document.createElement("textarea");
       textArea.value = text;
       document.body.appendChild(textArea);
@@ -759,21 +660,9 @@
       document.body.removeChild(textArea);
     }
 
-    function toggleDeployModal(show) {
-      const modal = document.getElementById('deploy-modal');
-      if (show) {
-        modal.classList.remove('hidden');
-      } else {
-        modal.classList.add('hidden');
-      }
-    }
-
-    // Close modals on clicking backdrop
     window.addEventListener('click', function(e) {
       const bibModal = document.getElementById('bibtex-modal');
-      const deployModal = document.getElementById('deploy-modal');
       if (e.target === bibModal) closeBibtexModal();
-      if (e.target === deployModal) toggleDeployModal(false);
     });
   </script>
 </body>
